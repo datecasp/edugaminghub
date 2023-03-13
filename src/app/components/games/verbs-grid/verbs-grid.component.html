@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="title">{{title}}</h1>
+    <p class="simpleText">Ready for a quick verb grid test?</p>
+    <p class="simpleText">Fill the blank cells with the correct verbal tense</p>
+    <mat-grid-list cols="4" rowHeight="5:1">
+        <mat-grid-tile class="header tile" *ngFor="let header of headers" [style.background]="header.color">
+            {{header.tense}}
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div class="btnGrid">
+        <app-verb-row [verbsInput]="gridList" (checkAnswersEvent)="checkAnswers($event)" (changeVerbsEvent)="changeVerbs()"
+                      >
+        </app-verb-row>
+    </div>
+</div>

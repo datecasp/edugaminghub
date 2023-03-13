@@ -1,0 +1,31 @@
+#btnQuizz{
+    width: auto;
+    min-width: fit-content;
+    padding: 5%;
+    margin: 0px;
+    font-size: 20px;
+    font-family: 'Ink Free';
+    font-weight: bold;
+    background-color: white;
+    vertical-align:middle ;
+}
+
+#txt{
+    vertical-align:middle ;
+    align-self: center;
+
+}
+
+#btn{width: 100%;
+    padding: 0px;
+    margin: 0px;
+    min-width: fit-content;
+}
+
+#btn :hover{
+    background-color: lightblue;
+}
+
+#btnQuizz :hover{
+    background-color: lightblue;
+}

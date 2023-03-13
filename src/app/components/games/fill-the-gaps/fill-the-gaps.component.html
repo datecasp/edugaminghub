@@ -1,0 +1,19 @@
+<div class="container">
+      <h1 class="title">{{title}}</h1>
+      <p class="simpleText">If this verb in <span class="clue">{{clueVerbAttribute.attributeType}}</span> is </p>
+      <h2 class="verb">{{clueVerbAttribute.attribute}}</h2>
+      <p class="simpleText">Complete the gaps to write it in <span class="clue">{{gappedVerbAttribute.attributeType}}</span></p>
+      <div class="btnContainer">
+          <app-letter-button-renderer [btnGappedVerbAttribute]="btnGappedVerbAttribute" (finalEvent)="checkResult($event)">
+          </app-letter-button-renderer>
+      </div>
+      <div class="btnContainer">
+        <app-letter-button-renderer [btnRandomLetters]="btnRandomLetters"></app-letter-button-renderer>
+      </div>
+    <div class="btnContainer">
+      <button mat-raised-button id="btnNewWord" (click)="newWord()">
+        New word
+      </button>
+    </div>
+  </div>
+  

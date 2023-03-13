@@ -1,0 +1,17 @@
+<div class="container">
+  <a *ngFor="let letter of btnGappedVerbAttribute; index as i">
+    <app-letter-button [letter]=(letter) *ngIf="charMatcher(letter); else notLetter"></app-letter-button>
+    <ng-template #notLetter>
+      <app-blank-button mwlDroppable [letter]="droppedData" (drop)="onDrop($event, i)" *ngIf="i == index; else blank">
+        {{droppedData}}
+      </app-blank-button>
+    </ng-template>
+    <ng-template #blank>
+      <app-blank-button mwlDroppable (drop)="onDrop($event, i)">
+      </app-blank-button>
+    </ng-template>
+  </a>
+  <app-random-letter-button mwlDraggable dropData={{rdLetter}} [letter]="rdLetter"
+                            *ngFor="let rdLetter of btnRandomLetters">
+  </app-random-letter-button>
+</div>

@@ -1,0 +1,36 @@
+<div class="container mat-elevation-z8" [style]="columnStyle">
+  <div #table *ngFor="let element of dataSource">
+    <div *ngIf="element.isSelected; else notSelected">
+      <div *ngIf="!element.isCorrect; else rightClick">
+        <button
+          class="btnName"
+          [style.backgroundColor]="wrongColor"
+          (pointerdown)="onClick(element)"
+          (pointerleave)="onLeave(element)"
+        >
+          {{ element.name }}
+        </button>
+      </div>
+      <ng-template #rightClick>
+        <button
+          class="btnName"
+          [style.backgroundColor]="correctColor"
+          (pointerdown)="onClick(element)"
+        >
+          {{ element.name }}
+        </button>
+      </ng-template>
+    </div>
+    <ng-template #notSelected>
+      <div>
+        <button
+          class="btnName"
+          [style.backgroundColor]="notSelectedColor"
+          (pointerdown)="onClick(element)"
+        >
+          {{ element.name }}
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>

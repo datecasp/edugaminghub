@@ -1,0 +1,70 @@
+<mat-grid-list cols="4" class="clue" *ngFor="let verb of verbsInput" rowHeight="6:1">
+    <mat-grid-tile *ngIf="verb.spanishFlag; else blankSpanish">
+        <input matInput class="clue cell disabled" placeholder={{verb.spanish}} disabled />
+    </mat-grid-tile>
+    <ng-template #blankSpanish>
+        <mat-grid-tile *ngIf="verb.spanishCorrectAnswer; else failedSpanish">
+            <input matInput class="clue cell notfailed" ngModel #first="ngModel"
+                   type="string" id="verbSpanish" name="verbSpanish" [(ngModel)]="verb.spanish" />
+        </mat-grid-tile>
+        <ng-template #failedSpanish>
+            <mat-grid-tile>
+                <input matInput class="clue cell failed" ngModel #first="ngModel"
+                       type="string" id="verbSpanish" name="verbSpanish" [(ngModel)]="verb.spanish"
+                       placeholder={{verb.spanish}} />
+            </mat-grid-tile>
+        </ng-template>
+    </ng-template>
+    <mat-grid-tile *ngIf="verb.presentFlag; else blankPresent">
+        <input matInput class="clue cell disabled" placeholder={{verb.present}} disabled />
+    </mat-grid-tile>
+    <ng-template #blankPresent>
+         <mat-grid-tile *ngIf="verb.presentCorrectAnswer; else failedPresent">
+            <input matInput class="clue cell notfailed" ngModel #first="ngModel"
+                   type="string" id="verbPresent" name="verbPresent" [(ngModel)]="verb.present" />
+        </mat-grid-tile>
+        <ng-template #failedPresent>
+            <mat-grid-tile>
+                <input matInput class="clue cell failed" ngModel #first="ngModel"
+                       type="string" id="verbPresent" name="verbPresent" [(ngModel)]="verb.present"
+                       placeholder={{verb.present}} />
+            </mat-grid-tile>
+        </ng-template>
+    </ng-template>
+    <mat-grid-tile *ngIf="verb.pastFlag; else blankPast">
+        <input matInput class="clue cell disabled" placeholder={{verb.past}} disabled />
+    </mat-grid-tile>
+    <ng-template #blankPast>
+        <mat-grid-tile *ngIf="verb.pastCorrectAnswer; else failedPast">
+            <input matInput class="clue cell notFailed" ngModel #first="ngModel"
+                   type="string" id="verbPast" name="verbPast" [(ngModel)]="verb.past" />
+        </mat-grid-tile>
+        <ng-template #failedPast>
+            <mat-grid-tile>
+                <input matInput class="clue cell failed" ngModel #first="ngModel"
+                       type="string" id="verbPast" name="verbPast" [(ngModel)]="verb.past"
+                       placeholder={{verb.past}} />
+            </mat-grid-tile>
+        </ng-template>
+    </ng-template>
+    <mat-grid-tile *ngIf="verb.participleFlag; else blankParticiple">
+        <input matInput class="clue cell disabled" placeholder={{verb.participle}} disabled />
+    </mat-grid-tile>
+    <ng-template #blankParticiple>
+        <mat-grid-tile *ngIf="verb.participleCorrectAnswer; else failedParticiple">
+            <input matInput class="clue cell notFailed" ngModel #first="ngModel"
+                   type="string" id="verbParticiple" name="verbParticiple" [(ngModel)]="verb.participle" />
+        </mat-grid-tile>
+         <ng-template #failedParticiple>
+            <mat-grid-tile>
+                <input matInput class="clue cell failed" ngModel #first="ngModel"
+                       type="string" id="verbParticiple" name="verbParticiple" [(ngModel)]="verb.participle"
+                       placeholder={{verb.participle}} />
+            </mat-grid-tile>
+        </ng-template>
+    </ng-template>
+</mat-grid-list>
+<div class="btnContainer">
+    <button mat-raised-button id="btnCheck" (click)="onCheckAnswers()">Check answers</button>
+    <button mat-raised-button id="btnRandom" (click)="onChangeVerbs()">Change verbs</button>
+</div>

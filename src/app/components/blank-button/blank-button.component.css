@@ -1,0 +1,12 @@
+#blank {
+  width: auto;
+  height: auto;
+  aspect-ratio: 5/7;
+  border-color: black;
+  border-style: double;
+  background-color: rgba(245, 255, 112, 0.8);
+}
+
+.drop-over-active {
+    background-color: aqua;
+}

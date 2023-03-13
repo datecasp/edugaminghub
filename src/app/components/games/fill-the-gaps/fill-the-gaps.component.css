@@ -1,0 +1,87 @@
+.container {
+  margin: 0 10% !important;
+  float: none !important;
+  display: block;
+  align-items: center;
+  width: 1000px;
+  }
+  
+  .title {
+    text-align:center;
+    font-family: 'Ink Free';
+    font-size:60px;
+  }
+  
+  .simpleText {
+    text-align: center;
+    text-justify: auto;
+    font-size: 25px;
+    font-family: 'Ink Free';
+  }
+  
+  .verb {
+    text-align: center;
+    text-justify: auto;
+    font-family: 'Ink Free';
+    font-size: 45px;
+  }
+  
+  .clue {
+    text-align: center;
+    text-justify: auto;
+    font-family: 'Ink Free';
+    font-size: 35px;
+    font-weight: bolder;
+  }
+  
+  .btnContainer {
+    margin: 2% auto !important;
+    float: none !important;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .btnLetter {
+    width: 5%;
+    height: auto;
+    aspect-ratio:5/7;
+    font-family: 'Ink Free';
+    font-size: xx-large;
+    margin: 15px 20px;
+    font-weight: bolder;
+  }
+  
+  #btnNewWord {
+    width: 20%;
+    min-width: 150px;
+    height:auto;
+    aspect-ratio:5/2;
+    font-family: 'Ink Free';
+    font-size: xx-large;
+    margin: 45px auto;
+    font-weight: bolder;
+    background-color: rgba(155, 255, 245, 0.8);
+    color: purple;
+  }
+  
+  #gap {
+    background-color: azure;
+    border-color: black;
+    border-style:double;
+  }
+  
+  #random {
+    background-color: antiquewhite;
+    border-color: black;
+    border-style: dashed;
+  }
+  
+  #btnGames {
+    width: 90px;
+    height: 90px;
+    left: 50px;
+    top: 10%;
+    position: absolute;
+  }
+  
+  

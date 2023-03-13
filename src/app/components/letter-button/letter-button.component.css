@@ -1,0 +1,13 @@
+#gap {
+  width: auto;
+  height: auto;
+  aspect-ratio: 5/7;
+  border-color: black;
+  border-style: double;
+}
+
+button[disabled]{
+    background-color: rgba(143, 222, 245, 1);
+    color: black;    margin: 2% auto !important;
+
+}

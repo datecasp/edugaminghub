@@ -1,0 +1,8 @@
+#random {
+  width: auto;
+  height: auto;
+  aspect-ratio: 5/7;
+  background-color: rgba(255, 150, 245, 0.8);
+  border-color: black;
+  border-style: dashed;
+}

@@ -1,0 +1,32 @@
+.container {
+    margin: 0 10% !important;
+    float: none !important;
+    display: block;
+    align-items: center;
+    width: 1000px;
+  }
+  
+  .title {
+    margin: 30px auto !important;
+    text-align: center;
+    font-family: 'Ink Free';
+    font-size: 60px;
+  }
+  
+  .simpleText {
+    margin: 30px auto !important;
+    text-align: center;
+    text-justify: auto;
+    font-size: 25px;
+    font-family: 'Ink Free';
+  }
+  
+  .header {
+    width: 20%;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Ink Free';
+    font-weight: bold;
+  }
+  
+  

@@ -1,0 +1,54 @@
+.clue {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Ink Free';
+  font-weight: bold;
+}
+
+.cell {
+  margin: 0 0 !important;
+  border: 2px solid black;
+  width: 100%;
+  height: stretch;
+  aspect-ratio: 6/1;
+  background-color: white;
+}
+
+.notFailed {
+  background-color: white;
+}
+
+.failed {
+  background-color: rgba(255, 41, 13, 0.68);
+}
+
+.disabled {
+  background-color: rgba(245, 245, 245, 1);
+  color: black;
+}
+
+.btnContainer {
+  margin: 30px auto !important;
+  display: flex;
+  column-gap: 60%;
+}
+
+#btnCheck {
+  background-color: rgba(30, 225, 255, 0.6);
+  width: 20%;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Ink Free';
+  font-weight: bold;
+}
+
+#btnRandom {
+  background-color: rgba(255, 30, 175, 0.6);
+  width: 20%;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Ink Free';
+  font-weight: bold;
+}

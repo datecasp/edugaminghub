@@ -1,0 +1,1 @@
+export const SOCIAL_SPAIN_RIVERS: string[] = ['Tajo', 'Duero', 'Ebro', 'Guadalquivir', 'Guadiana', 'Júcas', 'Segura', 'Miño']

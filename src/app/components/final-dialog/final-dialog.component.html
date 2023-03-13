@@ -1,0 +1,14 @@
+<div class="modal-header"  [style.backgroundColor]="headerColor">
+  <h4 class="title">{{ title }}</h4>
+  
+</div>
+<div class="simpleText">
+  <p>{{ message }}</p>
+  <p class="word">{{submessage}} </p>
+  <p>{{ triesTxt }} {{ triesNum }}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="accept()">
+    {{ btnOkText }}
+  </button>
+</div>
