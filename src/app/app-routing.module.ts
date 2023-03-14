@@ -6,12 +6,13 @@ import { SpainRiversQuizzComponent } from './components/games/spain-rivers-quizz
 import { VerbsGridComponent } from './components/games/verbs-grid/verbs-grid.component';
 import { HomeComponent } from './components/home/home.component';
 
+const baseUrl: string = "edugaming/"
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path:'spain-rivers-quizz', component: SpainRiversQuizzComponent},
-  {path:'spain-aacc-quizz', component: SpainAaccQuizzComponent},
-  {path: 'verbs-grid-test', component: VerbsGridComponent},
-  {path: 'fill-the-gaps', component: FillTheGapsComponent},
+  {path: baseUrl, component: HomeComponent},
+  {path: baseUrl+'spain-rivers-quizz', component: SpainRiversQuizzComponent},
+  {path: baseUrl+'spain-aacc-quizz', component: SpainAaccQuizzComponent},
+  {path: baseUrl+'verbs-grid-test', component: VerbsGridComponent},
+  {path: baseUrl+'fill-the-gaps', component: FillTheGapsComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
