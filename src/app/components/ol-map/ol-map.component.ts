@@ -21,7 +21,7 @@ import Map from 'ol/Map';
 import { useGeographic } from 'ol/proj';
 import { OlMapService } from '../../services/ol-map.service';
 import { IAacc } from '../../interfaces/IAacc';
-import { InlineStyles } from '../../Resources/inline-styles';
+import { InlineStyles } from '../../resources/inline-styles';
 
 useGeographic();
 
