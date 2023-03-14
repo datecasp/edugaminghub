@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs/",
+            "outputPath": "dist/edugaminghub",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -68,7 +68,7 @@
               "browserTarget": "edugaminghub:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
