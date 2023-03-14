@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Coordinate } from 'ol/coordinate';
 import { ELEMENT_DATA } from '../../../data/element-data';
 import { IAacc } from '../../../interfaces/IAacc';
-import { InlineStyles } from '../../../Resources/inline-styles';
+import { InlineStyles } from '../../../resources/inline-styles';
 @Component({
   selector: 'app-spain-aacc-quizz',
   templateUrl: './spain-aacc-quizz.component.html',
