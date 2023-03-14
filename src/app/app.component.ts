@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   imgMenuIcon: string = "./assets/rubik.png";
   imgMenuIconHover: string = "./assets/rubik-hover.png";
   imgSrc: string = this.imgMenuIcon;
-  readonly baseUrl: string = "edugaming/"
 
   games: btnQuizzDrawer[] = [
     {id: 0, quizzName:"Fill the gaps", quizzImg:"./assets/brain.png", quizzNameValue:'fill-the-gaps'},
@@ -33,7 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   public onClick(gameName: string){
-    this.router.navigate([this.baseUrl+`${gameName}`]);
+    this.router.navigate([`/${gameName}`]);
   }
 
   public onClick_GamesSideNav(){
