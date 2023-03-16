@@ -96,7 +96,8 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "baseHref": "https://datecasp.github.io/edugaminghub"
         }
       }
     },
@@ -119,7 +120,7 @@
               "tsConfig": "projects/social-quizzs-lib/tsconfig.lib.json"
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
