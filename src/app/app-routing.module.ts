@@ -7,7 +7,7 @@ import { VerbsGridComponent } from './components/games/verbs-grid/verbs-grid.com
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'spain-rivers-quizz', component: SpainRiversQuizzComponent},
   {path: 'spain-aacc-quizz', component: SpainAaccQuizzComponent},
   {path: 'verbs-grid-test', component: VerbsGridComponent},
