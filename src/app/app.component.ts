@@ -10,7 +10,6 @@ import { SocialQuizzsLibService } from 'projects/social-quizzs-lib/src/public-ap
 })
 export class AppComponent implements OnInit {
   title = 'social-quizzs-app';
-  social: string[] = [];
   opened: boolean = false;
   imgMenuIcon: string = "./assets/rubik.png";
   imgMenuIconHover: string = "./assets/rubik-hover.png";
@@ -32,7 +31,11 @@ export class AppComponent implements OnInit {
   }
 
   public onClick(gameName: string){
+    var url = `https://localhosta:4200/${gameName}`;
+
+    this.router.navigate([`home`]);
     this.router.navigate([`/${gameName}`]);
+    //this.router.navigateByUrl(url);
   }
 
   public onClick_GamesSideNav(){

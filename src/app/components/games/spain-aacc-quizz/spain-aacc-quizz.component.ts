@@ -13,6 +13,7 @@ export class SpainAaccQuizzComponent {
   //Inputs app-ol-map and in-line style defs
   center: Coordinate = [400, 320];
   zoom: number = 1.5;
+  url: string = './assets/spain-communities.png';
 
   mapStyle = 'width: 800px; height: 700px;';
   inlineStyleStore: InlineStyles = new InlineStyles();
@@ -25,7 +26,7 @@ export class SpainAaccQuizzComponent {
   columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
   columnStyleRight = this.inlineStyleStore.columnStyleRight;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   buttonClicked() {
     this.tries++;
