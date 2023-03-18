@@ -25,7 +25,7 @@ import { RandomLetterButtonComponent } from './components/random-letter-button/r
 import { LetterButtonRendererComponent } from './components/letter-button-renderer/letter-button-renderer.component';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { BlankButtonComponent } from './components/blank-button/blank-button.component';
-import { GameInstructionsComponent } from './game-instructions/game-instructions.component';
+import { GameInstructionsComponent } from './components/game-instructions/game-instructions.component';
 
 @NgModule({
   declarations: [
