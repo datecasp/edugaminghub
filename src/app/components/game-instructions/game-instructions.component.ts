@@ -32,14 +32,11 @@ export class GameInstructionsComponent implements AfterViewInit {
     for (const g of this.gamesData) {
       if (g.quizzNameValue == this.gameName) {
         this.game = g;
-        this.title = this.game.quizzName;
-        this.instructionsSet1 = this.gamesInstructions[this.game.id].set1;
-        this.instructionsSet2 = this.gamesInstructions[this.game.id].set2;
+        this.title = g.quizzName;
+        this.instructionsSet1 = this.gamesInstructions[g.id].set1;
+        this.instructionsSet2 = this.gamesInstructions[g.id].set2;
       }
     }
-    //var gameId = this.gamesData.findIndex(g => g.quizzNameValue == this.gameName);
-    // this.instructionsSet1 = this.gameInstructions[this.game.id];
-    // this.instructionsSet2 = this.gameInstructions[this.game.id];
   }
 
   onClick() {

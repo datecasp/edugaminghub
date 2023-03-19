@@ -1,10 +1,16 @@
 <div class="container">
-    <app-ol-map
-      [style]="mapStyle"
-      id="ol-map"
-      [center]="center"
-      [zoom]="zoom"
-      [url]="url"
-    ></app-ol-map>
-  </div>
-  
+  <table-custom
+    [data]="dataSourceLeft"
+    [tries]="tries"
+    [style]="columnStyleLeft"
+    (btnClicked)="buttonClicked()"
+  ></table-custom>
+
+  <app-ol-map
+    [style]="mapStyle"
+    id="ol-map"
+    [center]="center"
+    [zoom]="zoom"
+    [url]="url"
+  ></app-ol-map>
+</div>

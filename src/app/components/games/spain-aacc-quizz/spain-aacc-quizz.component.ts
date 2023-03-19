@@ -4,6 +4,8 @@ import { Coordinate } from 'ol/coordinate';
 import { ELEMENT_DATA } from '../../../data/element-data';
 import { IAacc } from '../../../interfaces/IAacc';
 import { InlineStyles } from '../../../resources/inline-styles';
+import { OlMapService } from 'src/app/services/ol-map.service';
+
 @Component({
   selector: 'app-spain-aacc-quizz',
   templateUrl: './spain-aacc-quizz.component.html',
@@ -26,8 +28,11 @@ export class SpainAaccQuizzComponent {
   columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
   columnStyleRight = this.inlineStyleStore.columnStyleRight;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private _olMapService: OlMapService) { }
 
+  ngOnInit(): void {
+    this._olMapService.setData(this.data);
+}
   buttonClicked() {
     this.tries++;
   }
