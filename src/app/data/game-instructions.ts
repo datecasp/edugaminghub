@@ -1,6 +1,7 @@
 import { InstructionsSet } from "../models/InstructionsSet";
 
 export const INSTRUCTIONS_SETS: InstructionsSet[] = [
+  //Same id value as game in games
   {
     id: 0,
     set1: 'Can you complete the gaps in these verbal tenses?',

@@ -1,6 +1,7 @@
-import { GameName } from "../models/GameName";
+import { Game } from "../models/Game";
 
-export const GAME_NAMES: GameName[] = [
+export const GAMES: Game[] = [
+    //Same id as game-instructions instructions-set
     {id: 0, quizzName:"Fill the gaps", quizzImg:"./assets/brain.png", quizzNameValue:'fill-the-gaps'},
     {id: 1, quizzName:"VerbsGrid Test", quizzImg:"./assets/city.png", quizzNameValue: 'verbs-grid-test'},
     {id: 2, quizzName:" Spain rivers ", quizzImg:"./assets/river.png", quizzNameValue:'spain-rivers-quizz'},
