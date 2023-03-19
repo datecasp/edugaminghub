@@ -1,6 +1,6 @@
 import { IAacc } from '../interfaces/IAacc';
 
-export const ELEMENT_DATA: IAacc[] = [
+export const COMMUNITIES: IAacc[] = [
   { id: 1, name: 'Andalucía', point: [290, 210], isSelected: false, isCorrect: false},
   { id: 2, name: 'Aragón', point: [500, 470], isSelected: false, isCorrect: false },
   { id: 3, name: 'Asturias', point: [210, 585], isSelected: false, isCorrect: false },

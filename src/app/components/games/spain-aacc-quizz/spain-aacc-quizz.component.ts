@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coordinate } from 'ol/coordinate';
-import { ELEMENT_DATA } from '../../../data/element-data';
+import { COMMUNITIES } from '../../../data/communities';
 import { IAacc } from '../../../interfaces/IAacc';
 import { InlineStyles } from '../../../resources/inline-styles';
 import { OlMapService } from 'src/app/services/ol-map.service';
@@ -22,7 +22,7 @@ export class SpainAaccQuizzComponent {
   tries: number = 1;
 
   //Inputs table-custom and in-line style defs
-  data = ELEMENT_DATA;
+  data = COMMUNITIES;
   dataSourceLeft: IAacc[] = this.data.slice(0, this.data.length / 2 + 1);
   dataSourceRight: IAacc[] = this.data.slice(this.data.length / 2 + 1);
   columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
