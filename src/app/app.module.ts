@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule,NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from 'material.module';
 
 import { SocialQuizzsLibModule } from 'projects/social-quizzs-lib/src/public-api';
@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SpainRiversQuizzComponent } from './components/games/spain-rivers-quizz/spain-rivers-quizz.component';
-import { SpainAaccQuizzComponent } from './components/games/spain-aacc-quizz/spain-aacc-quizz.component'
+import { SpainAaccQuizzComponent } from './components/games/spain-aacc-quizz/spain-aacc-quizz.component';
 import { TableCustomComponent } from './components/table-custom/table-custom.component';
 import { OlMapComponent } from './components/ol-map/ol-map.component';
 import { OlMapService } from './services/ol-map.service';
@@ -25,6 +25,7 @@ import { RandomLetterButtonComponent } from './components/random-letter-button/r
 import { LetterButtonRendererComponent } from './components/letter-button-renderer/letter-button-renderer.component';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { BlankButtonComponent } from './components/blank-button/blank-button.component';
+import { GameInstructionsComponent } from './components/game-instructions/game-instructions.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { BlankButtonComponent } from './components/blank-button/blank-button.com
     LetterButtonRendererComponent,
     BlankButtonComponent,
     FillTheGapsComponent,
+    GameInstructionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +54,9 @@ import { BlankButtonComponent } from './components/blank-button/blank-button.com
     FormsModule,
     NgbModule,
     NgbPopoverModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [OlMapService, FinalDialogService, VerbsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

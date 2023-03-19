@@ -33,9 +33,11 @@ useGeographic();
 export class OlMapComponent implements AfterViewInit {
   @Input() center: Coordinate | any; // map center
   @Input() zoom: number | any; // initial zoom
+  @Input() url: string | any; //url of map to show
   view: View | any;
   map: Map | any;
-  layer: any;
+  vectorLayer: any;
+  mapLayer: any;
   inlineStyleStore: InlineStyles = new InlineStyles();
   tries: number = 1;
 
@@ -66,6 +68,8 @@ export class OlMapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     if (!this.map) {
       this.zone.runOutsideAngular(() => this.initMap());
+    } else {
+      this.onClick();
     }
   }
 
@@ -79,26 +83,24 @@ export class OlMapComponent implements AfterViewInit {
       target: 'map',
       view: this.view,
       controls: DefaultControls().extend([new ScaleLine({})]),
-      layers: [
-        new ImageLayer({
-          source: new Static({
-            url: './assets/spain-communities.png',
-            projection: this.projection,
-            imageExtent: this.extent,
-          }),
-        }),
-      ],
     });
-    this.layer = this._olMapService.createNewMapLayerService();
-
-    this.map.addLayer(this.layer);
+    this.mapLayer = this._olMapService.createNewMapLayerService(
+      this.url,
+      this.projection,
+      this.extent
+    );
+    this.vectorLayer = this._olMapService.createNewPointLayerService();
+    this.map.addLayer(this.mapLayer);
+    this.map.addLayer(this.vectorLayer);
   }
 
   onClick() {
     this.tries = 1;
-    this.map.removeLayer(this.layer);
-    this.layer =this._olMapService.createNewMapLayerService();
-    this.map.addLayer(this.layer);
+    this.map.removeLayer(this.vectorLayer);
+    this.map.removeLayer(this.mapLayer);
+    this.vectorLayer = this._olMapService.createNewPointLayerService();
+    this.map.addLayer(this.mapLayer);
+    this.map.addLayer(this.vectorLayer);
   }
 
   buttonClicked() {

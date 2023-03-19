@@ -8,6 +8,10 @@ import Feature from 'ol/Feature';
 import { Geometry, Point } from 'ol/geom';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
+import ImageLayer from 'ol/layer/Image';
+import Static from 'ol/source/ImageStatic';
+import { ProjectionLike } from 'ol/proj';
+import { Extent } from 'ol/extent';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +35,17 @@ export class OlMapService {
     return pixel == (this.showedData.point as Pixel);
   }
 
+  public createNewMapLayerService(url: string, projection: ProjectionLike, extent: Extent): ImageLayer<Static>{
+    return new ImageLayer({
+      source: new Static({
+        url: url,
+        projection: projection,
+        imageExtent: extent,
+      }),
+    })
+  }
  
-  public createNewMapLayerService(): VectorLayer<VectorSource<Geometry>>{
+  public createNewPointLayerService(): VectorLayer<VectorSource<Geometry>>{
     var showedData = this.getRandomShowedAaccService();
     var point = new Point(showedData.point);
 
