@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { btnQuizzDrawer } from 'projects/social-quizzs-lib/src/lib/social-quizzs-lib.models';
 import { SocialQuizzsLibService } from 'projects/social-quizzs-lib/src/public-api';
+import { GAME_NAMES } from './data/games';
+import { GameName } from './models/GameName';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,7 @@ export class AppComponent implements OnInit {
   imgMenuIconHover: string = "./assets/rubik-hover.png";
   imgSrc: string = this.imgMenuIcon;
 
-  games: btnQuizzDrawer[] = [
-    {id: 0, quizzName:"Fill the gaps", quizzImg:"./assets/brain.png", quizzNameValue:'fill-the-gaps'},
-    {id: 1, quizzName:"VerbsGrid Test", quizzImg:"./assets/city.png", quizzNameValue: 'verbs-grid-test'},
-    {id: 2, quizzName:" Spain rivers ", quizzImg:"./assets/river.png", quizzNameValue:'spain-rivers-quizz'},
-    {id: 3, quizzName:"Spain AA. CC.", quizzImg:"./assets/mountain.png", quizzNameValue:'spain-aacc-quizz'}
-   ]
+  games: GameName[] = GAME_NAMES;
 
    constructor(
     private quizzLibService: SocialQuizzsLibService,
@@ -31,11 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   public onClick(gameName: string){
-    var url = `https://localhosta:4200/${gameName}`;
-
-    this.router.navigate([`home`]);
-    this.router.navigate([`/${gameName}`]);
-    //this.router.navigateByUrl(url);
+    this.router.navigate([`/instructions/`+gameName]);
   }
 
   public onClick_GamesSideNav(){
