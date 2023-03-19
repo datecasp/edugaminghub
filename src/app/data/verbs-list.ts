@@ -29,5 +29,17 @@ export const VERBS_LIST: Verb[] = [
   { id: 25, spanish: "dar", present: "give", past: "gave", participle: "given" },
   { id: 26, spanish: "ir", present: "go", past: "went", participle: "gone" },
   { id: 27, spanish: "tener", present: "have", past: "had", participle: "had" },
-  { id: 28, spanish: "oir", present: "hear", past: "heard", participle: "heard" }
+  { id: 28, spanish: "oir", present: "hear", past: "heard", participle: "heard" },
+  { id: 29, spanish: "guardar", present: "keep", past: "kept", participle: "kept" },
+  { id: 30, spanish: "saber", present: "know", past: "knew", participle: "known" },
+  { id: 31, spanish: "aprender", present: "learn", past: "learnt", participle: "learnt" },
+  { id: 32, spanish: "perder", present: "lose", past: "lost", participle: "lost" },
+  { id: 33, spanish: "crear", present: "make", past: "made", participle: "made" },
+  { id: 34, spanish: "perdonar", present: "forgive", past: "forgave", participle: "forgiven" },
+  { id: 35, spanish: "equivocarse", present: "mistake", past: "mistook", participle: "mistaken" },
+  { id: 36, spanish: "vencer", present: "overcome", past: "overcame", participle: "overcame" },
+  { id: 37, spanish: "pagar", present: "pay", past: "paid", participle: "paid" },
+  { id: 38, spanish: "decir", present: "say", past: "said", participle: "said" },
+  { id: 39, spanish: "cantar", present: "sing", past: "sang", participle: "sung" },
+  { id: 40, spanish: "dormir", present: "sleep", past: "slept", participle: "slept" }
 ];
