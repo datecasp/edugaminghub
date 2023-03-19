@@ -9,7 +9,7 @@ export const VERBS_LIST: Verb[] = [
   { id: 5, spanish: "comer", present: "eat", past: "ate", participle: "eaten" },
   { id: 6, spanish: "hacer", present: "do", past: "did", participle: "done" },
   { id: 7, spanish: "soñar", present: "dream", past: "dreamt", participle: "dreamt" },
-  { id: 8, spanish: "ser/estar", present: "is/are", past: "was/were", participle: "been" },
+  { id: 8, spanish: "ser/estar", present: "am/is/are", past: "was/were", participle: "been" },
   { id: 9, spanish: "romper", present: "break", past: "broke", participle: "broken" },
   { id: 10, spanish: "traer", present: "bring", past: "brought", participle: "brought" },
   { id: 11, spanish: "construir", present: "build", past: "built", participle: "built" },
