@@ -4,7 +4,7 @@ import { Coordinate } from 'ol/coordinate';
 import { RIVERS } from 'src/app/data/rivers';
 import { IRiver } from 'src/app/interfaces/IRiver';
 import { OlMapService } from 'src/app/services/ol-map.service';
-import { ELEMENT_DATA } from '../../../data/element-data';
+import { COMMUNITIES } from '../../../data/communities';
 import { IAacc } from '../../../interfaces/IAacc';
 import { InlineStyles } from '../../../resources/inline-styles';
 
