@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GAME_NAMES } from 'src/app/data/games';
-import { INSTRUCTIONS_SETS } from 'src/app/data/gamesInstructions';
-import { GameName } from 'src/app/models/GameName';
+import { GAMES } from 'src/app/data/games';
+import { INSTRUCTIONS_SETS } from 'src/app/data/game-instructions';
+import { Game } from 'src/app/models/Game';
 import { InstructionsSet } from 'src/app/models/InstructionsSet';
 
 @Component({
@@ -14,8 +14,8 @@ export class GameInstructionsComponent implements AfterViewInit {
   title: string = 'App tittle';
   instructionsSet1: string = 'Here goes first set of instructions of the game';
   instructionsSet2: string = 'Here goes second set of instructions of the game';
-  game: GameName | any;
-  gamesData = GAME_NAMES;
+  game: Game | any;
+  gamesData = GAMES;
   gamesInstructions = INSTRUCTIONS_SETS;
   gameName: string = '';
 

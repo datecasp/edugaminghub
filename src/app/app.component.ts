@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialQuizzsLibService } from 'projects/social-quizzs-lib/src/public-api';
-import { GAME_NAMES } from './data/games';
-import { GameName } from './models/GameName';
+import { GAMES } from './data/games';
+import { Game } from './models/Game';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   imgMenuIconHover: string = "./assets/rubik-hover.png";
   imgSrc: string = this.imgMenuIcon;
 
-  games: GameName[] = GAME_NAMES;
+  games: Game[] = GAMES;
 
    constructor(
     private quizzLibService: SocialQuizzsLibService,
