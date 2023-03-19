@@ -41,12 +41,6 @@ export class OlMapComponent implements AfterViewInit {
   inlineStyleStore: InlineStyles = new InlineStyles();
   tries: number = 1;
 
-  //Data and defs for column buttons
-  data = this._olMapService.getDataService();
-  dataSourceLeft: IAacc[] = this.data.slice(0, this.data.length / 2 + 1);
-  dataSourceRight: IAacc[] = this.data.slice(this.data.length / 2 + 1);
-  columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
-  columnStyleRight = this.inlineStyleStore.columnStyleRight;
   stylePlayAgainBtn = this.inlineStyleStore.stylePlayAgainBtn;
 
   // Map views always need a projection.  Here we just want to map image
@@ -68,9 +62,7 @@ export class OlMapComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     if (!this.map) {
       this.zone.runOutsideAngular(() => this.initMap());
-    } else {
-      this.onClick();
-    }
+    } 
   }
 
   private initMap(): void {
@@ -101,9 +93,5 @@ export class OlMapComponent implements AfterViewInit {
     this.vectorLayer = this._olMapService.createNewPointLayerService();
     this.map.addLayer(this.mapLayer);
     this.map.addLayer(this.vectorLayer);
-  }
-
-  buttonClicked() {
-    this.tries++;
   }
 }

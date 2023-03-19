@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { IAacc } from '../../interfaces/IAacc';
+import { IElement } from 'src/app/interfaces/IElement';
 import { FinalDialogService } from '../../services/final-dialog.service';
 import { OlMapService } from '../../services/ol-map.service';
 
@@ -10,12 +10,12 @@ import { OlMapService } from '../../services/ol-map.service';
   templateUrl: './table-custom.component.html',
 })
 export class TableCustomComponent {
-  @Input() data: IAacc[] = [];
+  @Input() data: IElement[] = [];
   @Input() columnStyle: string = '';
   @Input() tries: number = 1 //Number of tries used -> starts at first try
   @Output() btnClicked = new EventEmitter();
 
-  dataSource: IAacc[] = [];
+  dataSource: IElement[] = [];
   correctAnswer: boolean = false;
   notSelectedColor = 'aquamarine';
   correctColor = 'green';
@@ -30,11 +30,11 @@ export class TableCustomComponent {
     this.dataSource = this.data;
   }
 
-  async onClick(element: IAacc) {
+  async onClick(element: IElement) {
     //  To equals id and dataSource index if dataSource[0].id != 0
-    //  dataA[0].id == 1   dataB[0] == 10 in spain-aacc-quizz
+    //  dataLeft[0].id == 1   dataRight[0] == 10 in spain-aacc-quizz
     let offsetId = this.dataSource[0].id;
-    element.isCorrect = this._olMapService.checkClickedAaccService(
+    element.isCorrect = this._olMapService.checkClickedIElementService(
       element.point
     );
     if (!element.isCorrect) {
@@ -53,7 +53,7 @@ export class TableCustomComponent {
     }
   }
 
-  onLeave(element: IAacc) {
+  onLeave(element: IElement) {
     let offsetId = this.dataSource[0].id;
     if (!this.dataSource[element.id - offsetId].isCorrect) {
       this.dataSource[element.id - offsetId].isSelected = !element.isSelected;
