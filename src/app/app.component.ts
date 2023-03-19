@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialQuizzsLibService } from 'projects/social-quizzs-lib/src/public-api';
 import { GAME_NAMES } from './data/games';
-import { GameName } from './models/gameName';
+import { GameName } from './models/GameName';
 
 @Component({
   selector: 'app-root',

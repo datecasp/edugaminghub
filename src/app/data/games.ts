@@ -1,4 +1,4 @@
-import { GameName } from "../models/gameName";
+import { GameName } from "../models/GameName";
 
 export const GAME_NAMES: GameName[] = [
     {id: 0, quizzName:"Fill the gaps", quizzImg:"./assets/brain.png", quizzNameValue:'fill-the-gaps'},

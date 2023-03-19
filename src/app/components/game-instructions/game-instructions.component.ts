@@ -1,37 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GAME_NAMES } from 'src/app/data/games';
-import { GameName } from 'src/app/models/gameName';
+import { INSTRUCTIONS_SETS } from 'src/app/data/gamesInstructions';
+import { GameName } from 'src/app/models/GameName';
+import { InstructionsSet } from 'src/app/models/InstructionsSet';
 
 @Component({
   selector: 'app-game-instructions',
   templateUrl: './game-instructions.component.html',
   styleUrls: ['./game-instructions.component.css'],
 })
-export class GameInstructionsComponent implements OnInit {
+export class GameInstructionsComponent implements AfterViewInit {
   title: string = 'App tittle';
   instructionsSet1: string = 'Here goes first set of instructions of the game';
   instructionsSet2: string = 'Here goes second set of instructions of the game';
   game: GameName | any;
   gamesData = GAME_NAMES;
-  gameName: string = "";
+  gamesInstructions = INSTRUCTIONS_SETS;
+  gameName: string = '';
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.route.params.subscribe((params) => {
       this.gameName = params['gameName'];
     });
-
     this.loadGameData();
   }
 
-  loadGameData(){
+  loadGameData() {
     for (const g of this.gamesData) {
-      if (g.quizzNameValue == this.gameName){
+      if (g.quizzNameValue == this.gameName) {
         this.game = g;
+        this.title = this.game.quizzName;
+        this.instructionsSet1 = this.gamesInstructions[this.game.id].set1;
+        this.instructionsSet2 = this.gamesInstructions[this.game.id].set2;
       }
     }
+    //var gameId = this.gamesData.findIndex(g => g.quizzNameValue == this.gameName);
+    // this.instructionsSet1 = this.gameInstructions[this.game.id];
+    // this.instructionsSet2 = this.gameInstructions[this.game.id];
   }
 
   onClick() {
