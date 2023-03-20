@@ -34,12 +34,13 @@ export class OlMapComponent implements AfterViewInit {
   @Input() center: Coordinate | any; // map center
   @Input() zoom: number | any; // initial zoom
   @Input() url: string | any; //url of map to show
+  @Output() resetTries =new EventEmitter<boolean>();
+
   view: View | any;
   map: Map | any;
   vectorLayer: any;
   mapLayer: any;
   inlineStyleStore: InlineStyles = new InlineStyles();
-  tries: number = 1;
 
   stylePlayAgainBtn = this.inlineStyleStore.stylePlayAgainBtn;
 
@@ -87,7 +88,7 @@ export class OlMapComponent implements AfterViewInit {
   }
 
   onClick() {
-    this.tries = 1;
+    this.resetTries.emit();
     this.map.removeLayer(this.vectorLayer);
     this.map.removeLayer(this.mapLayer);
     this.vectorLayer = this._olMapService.createNewPointLayerService();
