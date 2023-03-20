@@ -24,8 +24,8 @@ export class GameInstructionsComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.route.params.subscribe((params) => {
       this.gameName = params['gameName'];
+      this.loadGameData();
     });
-    this.loadGameData();
   }
 
   loadGameData() {
