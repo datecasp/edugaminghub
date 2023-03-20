@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SocialQuizzsLibService } from 'projects/social-quizzs-lib/src/public-api';
 import { GAMES } from './data/games';
 import { Game } from './models/Game';
@@ -20,14 +20,15 @@ export class AppComponent implements OnInit {
 
    constructor(
     private quizzLibService: SocialQuizzsLibService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ){}
 
   ngOnInit(): void { 
   }
 
   public onClick(gameName: string){
-    this.router.navigate([`/instructions/`+gameName]);
+    this.router.navigate([`/instructions/`,gameName]);
   }
 
   public onClick_GamesSideNav(){
