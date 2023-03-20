@@ -4,6 +4,7 @@
     [tries]="tries"
     [style]="columnStyleLeft"
     (btnClicked)="buttonClicked()"
+    (resetTries)="resetTries()"
   ></table-custom>
 
   <app-ol-map
@@ -18,6 +19,7 @@
     [data]="dataSourceRight"
     [tries]="tries"
     [style]="columnStyleRight"
-    (btnClicked)="buttonClicked()"
+    (btnClicked)="buttonClicked()"    
+    (resetTries)="resetTries()"
   ></table-custom>
 </div>
