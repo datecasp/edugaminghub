@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GAMES } from 'src/app/data/games';
+import { HOME_TEXTS } from 'src/app/data/home-texts';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,10 @@ import { GAMES } from 'src/app/data/games';
 })
 export class HomeComponent {
   gamesList = GAMES;
-  title = 'Edugaming Hub';
-  HomeText1 = 'Text 1 for home page. Put this text in a resource file please.';
-  HomeText2 =
-    'Another Text for home page. Put it also in a resource file please.';
+  homeTexts = HOME_TEXTS;
+  title = this.homeTexts.at(0)?.title;
+  HomeText1 = this.homeTexts.at(0)?.text1;
+  HomeText2 = this.homeTexts.at(0)?.text2;
   constructor(private router: Router) {}
   public onClick(gameName: string) {
     this.router.navigate([`/instructions/`, gameName]);
