@@ -36,4 +36,8 @@ export class SpainAaccQuizzComponent {
   buttonClicked() {
     this.tries++;
   }
+  
+  resetTries() {
+    this.tries = 1;
+  }
 }

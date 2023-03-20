@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { IAacc } from '../../interfaces/IAacc';
+import { IElement } from 'src/app/interfaces/IElement';
 import { FinalDialogService } from '../../services/final-dialog.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class FinalDialogComponent implements OnInit{
   @Input() triesTxt: string = '';
   @Input() triesNum: number = 0;
   @Input() btnOkText: string = '';
-  @Input() btnElement: IAacc | any;
+  @Input() btnElement: IElement | any;
   @Input() correct: boolean = true;
 
   headerColor: any;

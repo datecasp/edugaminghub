@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IElement } from 'src/app/interfaces/IElement';
 import { FinalDialogService } from '../../services/final-dialog.service';
 import { OlMapService } from '../../services/ol-map.service';
-
 
 @Component({
   selector: 'table-custom',
@@ -12,8 +11,9 @@ import { OlMapService } from '../../services/ol-map.service';
 export class TableCustomComponent {
   @Input() data: IElement[] = [];
   @Input() columnStyle: string = '';
-  @Input() tries: number = 1 //Number of tries used -> starts at first try
+  @Input() tries: number = 1; //Number of tries used -> starts at first try
   @Output() btnClicked = new EventEmitter();
+  @Output() resetTries =new EventEmitter();
 
   dataSource: IElement[] = [];
   correctAnswer: boolean = false;
@@ -50,6 +50,7 @@ export class TableCustomComponent {
         'Number of tries:  ',
         this.tries
       );
+      this.resetTries.emit();
     }
   }
 

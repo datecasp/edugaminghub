@@ -9,31 +9,39 @@ import { InlineStyles } from '../../../resources/inline-styles';
 @Component({
   selector: 'app-spain-rivers-quizz',
   templateUrl: './spain-rivers-quizz.component.html',
-  styleUrls: ['./spain-rivers-quizz.component.css']
+  styleUrls: ['./spain-rivers-quizz.component.css'],
 })
-export class SpainRiversQuizzComponent implements OnInit{
-//Inputs app-ol-map and in-line style defs
-center: Coordinate = [400, 320];
-zoom: number = 1.5;
-url: string = './assets/spain-rivers-map.png';
+export class SpainRiversQuizzComponent implements OnInit {
+  //Inputs app-ol-map and in-line style defs
+  center: Coordinate = [400, 320];
+  zoom: number = 1.5;
+  url: string = './assets/spain-rivers-map.png';
 
-mapStyle = 'width: 800px; height: 700px;';
-inlineStyleStore: InlineStyles = new InlineStyles();
-tries: number = 1;
+  mapStyle = 'width: 800px; height: 700px;';
+  inlineStyleStore: InlineStyles = new InlineStyles();
+  tries: number = 1;
 
-//Inputs table-custom and in-line style defs
-data = RIVERS;
+  //Inputs table-custom and in-line style defs
+  data = RIVERS;
 
-dataSourceLeft: IRiver[] = this.data;
-columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
+  dataSourceLeft: IRiver[] = this.data;
+  columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
 
-constructor(private router: Router, private route: ActivatedRoute, private _olMapService: OlMapService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private _olMapService: OlMapService
+  ) {}
 
-ngOnInit(): void {
+  ngOnInit(): void {
     this._olMapService.setData(this.data);
-}
+  }
 
-buttonClicked() {
-  this.tries++;
-}
+  buttonClicked() {
+    this.tries++;
+  }
+
+  resetTries() {
+    this.tries = 1;
+  }
 }
