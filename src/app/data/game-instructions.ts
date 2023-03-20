@@ -5,7 +5,7 @@ export const INSTRUCTIONS_SETS: InstructionsSet[] = [
   {
     id: 0,
     set1: 'Can you complete the gaps in these verbal tenses?',
-    set2: 'Drag and drop the letters from below into the blank ones above',
+    set2: 'Drag and drop the letters from the bottom area into the blank buttons above',
   },
   {
     id: 1,
