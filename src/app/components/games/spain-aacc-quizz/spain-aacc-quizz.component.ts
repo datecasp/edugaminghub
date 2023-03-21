@@ -23,6 +23,7 @@ export class SpainAaccQuizzComponent {
 
   //Inputs table-custom and in-line style defs
   data = COMMUNITIES;
+  dataType = 'communities';
   dataSourceLeft: IAacc[] = this.data.slice(0, this.data.length / 2 + 1);
   dataSourceRight: IAacc[] = this.data.slice(this.data.length / 2 + 1);
   columnStyleLeft = this.inlineStyleStore.columnStyleLeft;

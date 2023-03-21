@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FINALDIALOG_TEXTS } from 'src/app/data/final-dialog-texts';
 import { IElement } from 'src/app/interfaces/IElement';
 import { FinalDialogService } from '../../services/final-dialog.service';
 import { OlMapService } from '../../services/ol-map.service';
@@ -12,14 +13,17 @@ export class TableCustomComponent {
   @Input() data: IElement[] = [];
   @Input() columnStyle: string = '';
   @Input() tries: number = 1; //Number of tries used -> starts at first try
+  @Input() dataType: string = '';
   @Output() btnClicked = new EventEmitter();
-  @Output() resetTries =new EventEmitter();
+  @Output() resetTries = new EventEmitter();
 
   dataSource: IElement[] = [];
   correctAnswer: boolean = false;
   notSelectedColor = 'aquamarine';
   correctColor = 'green';
   wrongColor = 'red';
+  finalDialogTexts = FINALDIALOG_TEXTS;
+  fdShowedText: string | any;
 
   constructor(
     private _olMapService: OlMapService,
@@ -28,6 +32,15 @@ export class TableCustomComponent {
 
   ngAfterViewInit() {
     this.dataSource = this.data;
+    switch (this.dataType) {
+      case 'communities':
+        this.fdShowedText = this.finalDialogTexts.get('communities');
+        break;
+      case 'rivers':
+        this.fdShowedText = this.finalDialogTexts.get('rivers');
+        break;
+      default:
+    }
   }
 
   async onClick(element: IElement) {
@@ -45,7 +58,7 @@ export class TableCustomComponent {
       element.isSelected = await this._finalDialogService.popUp(
         true,
         'Yeah Right!!! Nice answer!',
-        'This Autonomous Community is',
+        this.fdShowedText,
         element.name,
         'Number of tries:  ',
         this.tries

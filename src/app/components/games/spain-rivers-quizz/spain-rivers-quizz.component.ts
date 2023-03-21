@@ -23,7 +23,7 @@ export class SpainRiversQuizzComponent implements OnInit {
 
   //Inputs table-custom and in-line style defs
   data = RIVERS;
-
+  dataType = 'rivers';
   dataSourceLeft: IRiver[] = this.data;
   columnStyleLeft = this.inlineStyleStore.columnStyleLeft;
 
