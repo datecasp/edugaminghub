@@ -58,8 +58,6 @@ export class TableCustomComponent {
       element.isSelected = await this._finalDialogService.popUp(
         true,
         'Yeah Right!!! Nice answer!',
-        //Cambiar este texto para que dependa del juego donde sea instanciado
-
         this.fdShowedText,
         element.name,
         'Number of tries:  ',
