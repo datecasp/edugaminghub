@@ -27,6 +27,7 @@ import { LetterButtonRendererComponent } from './components/letter-button-render
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { BlankButtonComponent } from './components/blank-button/blank-button.component';
 import { GameInstructionsComponent } from './components/game-instructions/game-instructions.component';
+import { GamesService } from './services/games.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { GameInstructionsComponent } from './components/game-instructions/game-i
     NgbPopoverModule,
     MaterialModule,
   ],
-  providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService],
+  providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
