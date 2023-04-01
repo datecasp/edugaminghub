@@ -28,6 +28,9 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
 import { BlankButtonComponent } from './components/blank-button/blank-button.component';
 import { GameInstructionsComponent } from './components/game-instructions/game-instructions.component';
 import { GamesService } from './services/games.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './services/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { GamesService } from './services/games.service';
     BlankButtonComponent,
     FillTheGapsComponent,
     GameInstructionsComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,7 @@ import { GamesService } from './services/games.service';
     NgbPopoverModule,
     MaterialModule,
   ],
-  providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService],
+  providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

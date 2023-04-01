@@ -5,4 +5,8 @@
   <div class="gamesBtnRow">
     <button *ngFor="let game of gamesList" mat-raised-button (click)="onClick(game.quizzNameValue)">{{game.quizzName}}</button>
   </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="openLogin()">Login</button>
+    <button mat-raised-button color="warn">Register</button>
+  </div>
 </div>
