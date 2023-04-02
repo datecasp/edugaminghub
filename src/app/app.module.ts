@@ -29,8 +29,10 @@ import { BlankButtonComponent } from './components/blank-button/blank-button.com
 import { GameInstructionsComponent } from './components/game-instructions/game-instructions.component';
 import { GamesService } from './services/games.service';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterFormComponent } from './components/register/register.component';
 import { AuthService } from './services/auth-service.service';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { AuthService } from './services/auth-service.service';
     FillTheGapsComponent,
     GameInstructionsComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,

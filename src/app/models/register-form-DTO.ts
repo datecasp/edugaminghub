@@ -1,7 +1,7 @@
-export class RegisterFormDTO {
+import { LoginFormDTO } from "./login-form-DTO";
+
+export class RegisterFormDTO extends LoginFormDTO {
     name: string = '';
     surname: string = '';
-    email: string = '';
-    password: string = '';
   }
   
