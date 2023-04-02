@@ -30,7 +30,6 @@ export class AuthService {
       email: email,
       password: password
     }
-
     return this.http.post('https://localhost:7057/api/Users/Login', body);
   }
 

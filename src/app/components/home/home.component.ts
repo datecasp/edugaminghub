@@ -23,8 +23,9 @@ export class HomeComponent implements AfterViewInit {
   ];
   homeTexts = HOME_TEXTS;
   title = this.homeTexts.at(0)?.title;
-  HomeText1 = this.homeTexts.at(0)?.text1;
-  HomeText2 = this.homeTexts.at(0)?.text2;
+  homeText1 = this.homeTexts.at(0)?.text1;
+  homeText2 = this.homeTexts.at(0)?.text2;
+  isLogged: boolean = false;
 
   loginForm: LoginFormDTO = {
     email: '',
@@ -71,7 +72,7 @@ export class HomeComponent implements AfterViewInit {
         (response) => {
           if (response.token) {
             sessionStorage.setItem('token', response.token);
-            this._authService.isLoggedIn = true;
+            this.isLogged = true;
             this.router.navigate(['home']);
           }
         },
@@ -79,5 +80,11 @@ export class HomeComponent implements AfterViewInit {
         () => console.info('Request done')
       );
     });
+  }
+
+  public logout(){
+    this._authService.logout();
+    this.isLogged = false;
+    this.router.navigate(['home']);
   }
 }
