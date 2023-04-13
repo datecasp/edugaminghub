@@ -1,8 +1,15 @@
 <div class="container">
   <h1 class="title">{{ title }}</h1>
-  <p class="simpleText">{{ HomeText1 }}</p>
-  <p class="simpleText">{{ HomeText2 }}</p>
+  <p class="simpleText">{{ homeText1 }}</p>
+  <p class="simpleText">{{ homeText2 }}</p>
   <div class="gamesBtnRow">
     <button *ngFor="let game of gamesList" mat-raised-button (click)="onClick(game.quizzNameValue)">{{game.quizzName}}</button>
   </div>
+  <div *ngIf="!isLogged; else Logged">
+    <button mat-raised-button color="primary" (click)="openLogin()">Login</button>
+    <button mat-raised-button color="accent" (click)="openRegister()">Register</button>
+  </div>
+  <ng-template #Logged>
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+  </ng-template>
 </div>

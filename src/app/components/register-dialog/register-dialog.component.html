@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Register</h1>
+<div mat-dialog-content *ngIf="notRegistered; else Registered">
+  <p>Fill the fields</p>
+  <mat-form-field appearance="fill">
+    <input matInput type="input" [(ngModel)]="data.name" placeholder="Name" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <input
+      matInput
+      type="input"
+      [(ngModel)]="data.surname"
+      placeholder="Surname"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <input matInput type="email" [(ngModel)]="data.email" placeholder="Email" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <input
+      matInput
+      type="password"
+      [(ngModel)]="data.password"
+      placeholder="Password"
+    />
+  </mat-form-field>
+</div>
+<ng-template #Registered>
+<div mat-dialog-content>
+  <h3>Congratulations!!!</h3>
+  <h4>Now you are a valuable member of</h4>
+  <h1>Edugaming</h1>
+</div>
+</ng-template>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
