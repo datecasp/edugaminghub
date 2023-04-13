@@ -5,12 +5,12 @@ import { GAMES } from 'src/app/data/games';
 import { HOME_TEXTS } from 'src/app/data/home-texts';
 import { Game } from 'src/app/models/Game';
 import { GamesService } from 'src/app/services/games.service';
-import { LoginComponent } from '../login/login.component';
-import { RegisterFormComponent } from '../register/register.component';
+import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
 import { RegisterFormDTO } from 'src/app/models/register-form-DTO';
 import { LoginFormDTO } from 'src/app/models/login-form-DTO';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { LoginDialogService } from 'src/app/services/login-dialog.service';
 
 @Component({
   selector: 'app-home',
@@ -29,25 +29,28 @@ export class HomeComponent implements AfterViewInit {
 
   loginForm: LoginFormDTO = {
     email: '',
-    password: ''
-  }
+    password: '',
+  };
 
   registerForm: RegisterFormDTO = {
     name: '',
     surname: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   constructor(
     private router: Router,
     private gameService: GamesService,
     public dialog: MatDialog,
-    private _authService: AuthService
+    private authService: AuthService
   ) {}
 
   ngAfterViewInit(): void {
     this.getValues();
+    if (sessionStorage.getItem('token')) {
+      this.isLogged = true;
+    }
   }
 
   getValues() {
@@ -60,18 +63,19 @@ export class HomeComponent implements AfterViewInit {
     this.router.navigate([`/instructions/`, gameName]);
   }
 
-  public openLogin() {
+  public async openLogin() {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       data: { email: this.loginForm.email, password: this.loginForm.password },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      let {email, password} = result;
+      let { email, password } = result;
       //:TODO update deprecated subscribe to next?
-      this._authService.login(email, password).subscribe(
+      this.authService.login(email, password).subscribe(
         (response) => {
           if (response.token) {
             sessionStorage.setItem('token', response.token);
+            sessionStorage.setItem('userId', response.id);
             this.isLogged = true;
             this.router.navigate(['home']);
           }
@@ -82,8 +86,40 @@ export class HomeComponent implements AfterViewInit {
     });
   }
 
-  public logout(){
-    this._authService.logout();
+  public async openRegister() {
+    const dialogRef = this.dialog.open(RegisterDialogComponent, {
+      data: {
+        name: this.registerForm.name,
+        surname: this.registerForm.surname,
+        email: this.loginForm.email,
+        password: this.loginForm.password,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      let { name, surname, email, password } = result;
+      //:TODO update deprecated subscribe to next?
+      this.authService.register(name, surname, email, password).subscribe(
+        (response) => {
+          this.authService.login(email, password).subscribe(
+            (response) => {
+              if (response.token) {
+                sessionStorage.setItem('token', response.token);
+                sessionStorage.setItem('userId', response.id);
+                this.isLogged = true;
+                this.router.navigate(['home']);
+              }
+            }
+          );
+       },
+       (error) => console.error('Error: ' + error),
+       () => console.info('Request done')
+      );
+    });
+  }
+
+  public logout() {
+    this.authService.logout();
     this.isLogged = false;
     this.router.navigate(['home']);
   }

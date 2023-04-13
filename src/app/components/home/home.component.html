@@ -5,11 +5,11 @@
   <div class="gamesBtnRow">
     <button *ngFor="let game of gamesList" mat-raised-button (click)="onClick(game.quizzNameValue)">{{game.quizzName}}</button>
   </div>
-  <div *ngIf="!isLogged; else NotLogged">
+  <div *ngIf="!isLogged; else Logged">
     <button mat-raised-button color="primary" (click)="openLogin()">Login</button>
-    <button mat-raised-button color="accent">Register</button>
+    <button mat-raised-button color="accent" (click)="openRegister()">Register</button>
   </div>
-  <ng-template #NotLogged>
+  <ng-template #Logged>
     <button mat-raised-button color="warn" (click)="logout()">Logout</button>
   </ng-template>
 </div>

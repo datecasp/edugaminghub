@@ -7,3 +7,4 @@ export * from './lib/social-quizzs-lib.module';
 
 export * from './lib/components/social-quizzs-lib.component';
 export * from './lib/components/quizz-button/quizz-button.component';
+export * from './lib/components/user-button/user-button.component';

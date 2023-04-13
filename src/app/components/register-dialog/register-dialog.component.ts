@@ -1,20 +1,24 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { RegisterFormDTO } from 'src/app/models/register-form-DTO';
 import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
-  selector: 'app-register-form',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  selector: 'app-register-dialog',
+  templateUrl: './register-dialog.component.html',
+  styleUrls: ['./register-dialog.component.css'],
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterDialogComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
-  //EventEmitter of Object Type to send the Form values (email and password)
+  @Input() notRegistered: boolean = true;
+  //EventEmitter of Object Type to send the Form values 
   @Output() registerOutput: EventEmitter<{}> = new EventEmitter<{}>();
 
   constructor(
     private _formBulder: FormBuilder,
-    private _authService: AuthService
+    public dialogRef: MatDialogRef<RegisterDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: RegisterFormDTO,
   ) {}
 
   ngOnInit(): void {
@@ -47,5 +51,9 @@ export class RegisterFormComponent implements OnInit {
     if (this.registerForm.valid) {
       this.registerOutput.emit(this.registerForm.value);
     }
+  }
+  
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

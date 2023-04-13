@@ -15,7 +15,7 @@ export const authGuard = () => {
   const router = inject(Router);
   const authService = inject(AuthService);
 
-  if (authService.isLoggedIn) {
+  if (sessionStorage.getItem('token')) {
     return true;
   }
 

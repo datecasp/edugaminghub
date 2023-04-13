@@ -36,25 +36,28 @@ export class AuthService {
   logout(): void {
     this.isLoggedIn = false;
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userId');
   }
 
   /**
    * Service to validate and save users into DB
    * 
-   * @param user -> RegisterFormDTO
-   * ATM only email and password is used while testing
+   * ATM only email and password are used while testing
    * agaisnt reqres service. Also no validations are done.
    * The email to success register is eve.holt@requires.in
    * Rest of fields are indiferent
    * Password is also required
    * @returns 
    */
-  register(user: RegisterFormDTO): Observable<any>{
+  register(name: string, surname: string, email:string, password: string): Observable<any>{
     let body ={
-      email: user.email,
-      password: user.password
+      "name": name,
+      "surname": surname,
+      "email": email,
+      "password": password,
+      "role": 1 //by default
     }
 
-    return this.http.post('https://reqres.in/api/register', body);
+    return this.http.post('https://localhost:7057/api/Users', body);
   }
 }

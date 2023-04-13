@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SocialQuizzsLibService } from 'projects/social-quizzs-lib/src/public-api';
 import { GAMES } from './data/games';
@@ -9,12 +9,14 @@ import { Game } from './models/Game';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
   title = 'social-quizzs-app';
   opened: boolean = false;
   imgMenuIcon: string = "./assets/rubik.png";
   imgMenuIconHover: string = "./assets/rubik-hover.png";
   imgSrc: string = this.imgMenuIcon;
+  isUserLogged: boolean = false;
+  userName = "Your profile";
 
   games: Game[] = GAMES;
 
@@ -24,7 +26,13 @@ export class AppComponent implements OnInit {
     private route: ActivatedRoute
     ){}
 
-  ngOnInit(): void { 
+  ngAfterViewInit(): void { 
+    if(sessionStorage.getItem('token') != null){
+      this.isUserLogged = true;
+    }
+    else{
+      this.isUserLogged = false;
+    }
   }
 
   public onClick(gameName: string){

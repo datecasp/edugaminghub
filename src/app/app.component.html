@@ -1,5 +1,6 @@
 <mat-drawer-container class=" container">
     <mat-drawer #drawer class="drawer mat-drawer" mode="push" [opened]=(opened) autosize>
+        <user-button mat-raised-button [userName]="userName"></user-button>
         <div *ngFor="let game of games">
             <quizz-button [imgUri]=game.quizzImg [quizzGameName]=game.quizzName  
             (click)="onClick(game.quizzNameValue); drawer.toggle()"></quizz-button>

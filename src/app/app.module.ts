@@ -28,10 +28,8 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
 import { BlankButtonComponent } from './components/blank-button/blank-button.component';
 import { GameInstructionsComponent } from './components/game-instructions/game-instructions.component';
 import { GamesService } from './services/games.service';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterFormComponent } from './components/register/register.component';
+import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { AuthService } from './services/auth-service.service';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 
 @NgModule({
@@ -51,9 +49,7 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
     BlankButtonComponent,
     FillTheGapsComponent,
     GameInstructionsComponent,
-    LoginComponent,
-    RegisterFormComponent,
-    LoginFormComponent,
+    RegisterDialogComponent,
     LoginDialogComponent,
   ],
   imports: [
