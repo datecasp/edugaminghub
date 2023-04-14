@@ -1,9 +1,20 @@
 <div class="container">
-    <h1 class="title">{{title}}</h1>
-    <p class="simpleText">{{instructionsSet1}}</p>
-    <p class="simpleText">{{instructionsSet2}}</p>
-    <button *ngIf="isLogged; else NotLogged" mat-raised-button (click)="onClick()">Go to play!</button>
-    <ng-template #NotLogged>
-        <button mat-raised-button (click)="openLogin()">Login</button>
-    </ng-template>
+  <h1 class="title">{{ title }}</h1>
+  <p class="simpleText">{{ instructionsSet1 }}</p>
+  <p class="simpleText">{{ instructionsSet2 }}</p>
+  <div class="actionBtn">
+    <button
+      *ngIf="isLogged; else NotLogged"
+      mat-raised-button
+      (click)="onClick()"
+      color="primary"
+    >
+      Go to play!
+    </button>
+  </div>
+  <ng-template #NotLogged>
+    <div class="actionBtn">
+      <button mat-raised-button (click)="openLogin()" color="accent">Login</button>
+    </div>
+  </ng-template>
 </div>

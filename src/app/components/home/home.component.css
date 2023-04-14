@@ -13,6 +13,13 @@
   justify-content: space-evenly;
 }
 
+.logoutBtn{
+  width: inherit;
+  margin-top: 25px;
+  display:flex;
+  justify-content: center;
+}
+
 .title {
   margin: 30px auto !important;
   text-align: center;

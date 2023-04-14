@@ -28,3 +28,9 @@
   font-family: "Ink Free";
   font-weight: bold;
 }
+
+.actionBtn{
+  margin-top: 25px;
+  display:flex;
+  justify-content: center;
+}
