@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 })
 export class RegisterDialogComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
-  @Input() notRegistered: boolean = true;
+  public notRegistered: boolean = true;
   //EventEmitter of Object Type to send the Form values 
   @Output() registerOutput: EventEmitter<{}> = new EventEmitter<{}>();
 
@@ -19,6 +19,7 @@ export class RegisterDialogComponent implements OnInit {
     private _formBulder: FormBuilder,
     public dialogRef: MatDialogRef<RegisterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: RegisterFormDTO,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {

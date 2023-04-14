@@ -31,6 +31,7 @@ import { GamesService } from './services/games.service';
 import { RegisterDialogComponent } from './components/register-dialog/register-dialog.component';
 import { AuthService } from './services/auth-service.service';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { GenericDialogComponent } from './components/generic-dialog/generic-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
     GameInstructionsComponent,
     RegisterDialogComponent,
     LoginDialogComponent,
+    GenericDialogComponent,
   ],
   imports: [
     BrowserModule,
