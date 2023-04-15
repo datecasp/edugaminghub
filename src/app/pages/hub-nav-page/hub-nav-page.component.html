@@ -12,15 +12,12 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="[opened] || (isHandset$ | async)">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Edugaming Hub</span>
+      <button type="button" mat-raised-button id="btnGames" (click)="drawer.toggle()" matTooltip="Games menu">
+        <img [src]="imgSrc" width="60dp"
+        (mouseover)="imgSrc = this.imgMenuIconHover" 
+        (mouseout)="imgSrc = this.imgMenuIcon"/>
+    </button>
+      <span class="title">Edugaming Hub</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

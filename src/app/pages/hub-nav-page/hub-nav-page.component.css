@@ -14,4 +14,15 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  padding-left: 5%;
+}
+
+.title{
+  padding-left: 3%;
+
+}
+
+#btnGames {
+  width: 64px;
+  height: 64px;
 }

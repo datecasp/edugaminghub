@@ -11,7 +11,6 @@ import { VerbsGridTestPageComponent } from './pages/games/verbs-grid-test-page/v
 import { HubNavPageComponent } from './pages/hub-nav-page/hub-nav-page.component';
 
 const routes: Routes = [
-  { path: '', component: HubNavPageComponent },
   { path: 'home', component: HomePageComponent },
   {
     path: 'spain-rivers-quizz',
