@@ -62,6 +62,7 @@ export class GameInstructionsComponent implements AfterViewInit {
             sessionStorage.setItem('token', response.token);
             sessionStorage.setItem('userId', response.userId);
             this.isLogged = true;
+            this.authService.loggedObs.next(this.isLogged);
             this.router.navigate([this.game.quizzNameValue]);
           }
         },

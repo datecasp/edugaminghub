@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 250px;
 }
 
 .sidenav .mat-toolbar {
@@ -17,12 +17,26 @@
   padding-left: 5%;
 }
 
-.title{
+.title {
   padding-left: 3%;
-
+  font-size: larger;
+  font-weight: bold;
 }
 
 #btnGames {
   width: 64px;
   height: 64px;
+}
+
+#btnHome {
+  width: 64px;
+  height: 64px;
+  background-color: transparent;
+  left: 70%;
+}
+
+#btnLogout {
+  width: 64px;
+  height: 64px;
+  left: 60%;
 }
