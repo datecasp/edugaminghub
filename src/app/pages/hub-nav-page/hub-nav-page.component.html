@@ -5,9 +5,11 @@
       [opened]=opened>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <user-button mat-raised-button [userName]="userName"></user-button>
+      <div *ngFor="let game of games">
+          <quizz-button [imgUri]=game.quizzImg [quizzGameName]=game.quizzName  
+          (click)="onClick(game.quizzNameValue); drawer.toggle()"></quizz-button>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
