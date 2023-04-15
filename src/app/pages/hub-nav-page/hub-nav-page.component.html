@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" 
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]=opened>
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <user-button mat-raised-button [userName]="userName"></user-button>
+      <div *ngFor="let game of games">
+          <quizz-button [imgUri]=game.quizzImg [quizzGameName]=game.quizzName  
+          (click)="onClick(game.quizzNameValue); drawer.toggle()"></quizz-button>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="[opened] || (isHandset$ | async)">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Edugaming Hub</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
