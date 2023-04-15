@@ -1,6 +1,5 @@
 .container {
-  margin: 10dp 10dp !important;
-  width: 1280px;
+  width: 100%;
   height: 700px;
 }
 

@@ -32,6 +32,19 @@ import { RegisterDialogComponent } from './components/register-dialog/register-d
 import { AuthService } from './services/auth-service.service';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 import { GenericDialogComponent } from './components/generic-dialog/generic-dialog.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SpainRiversPageComponent } from './pages/games/spain-rivers-page/spain-rivers-page.component';
+import { SpainAaccPageComponent } from './pages/games/spain-aacc-page/spain-aacc-page.component';
+import { FillTheGapsPageComponent } from './pages/games/fill-the-gaps-page/fill-the-gaps-page.component';
+import { VerbsGridTestPageComponent } from './pages/games/verbs-grid-test-page/verbs-grid-test-page.component';
+import { GameInstructionsPageComponent } from './pages/game-instructions-page/game-instructions-page.component';
+import { HubNavPageComponent } from './pages/hub-nav-page/hub-nav-page.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -53,6 +66,13 @@ import { GenericDialogComponent } from './components/generic-dialog/generic-dial
     RegisterDialogComponent,
     LoginDialogComponent,
     GenericDialogComponent,
+    HomePageComponent,
+    SpainRiversPageComponent,
+    SpainAaccPageComponent,
+    FillTheGapsPageComponent,
+    VerbsGridTestPageComponent,
+    GameInstructionsPageComponent,
+    HubNavPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +84,12 @@ import { GenericDialogComponent } from './components/generic-dialog/generic-dial
     NgbModule,
     NgbPopoverModule,
     MaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService, AuthService],
   bootstrap: [AppComponent],

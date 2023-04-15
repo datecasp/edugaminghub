@@ -1,17 +1,1 @@
-<mat-drawer-container class=" container">
-    <mat-drawer #drawer class="drawer mat-drawer" mode="push" [opened]=(opened) autosize>
-        <user-button mat-raised-button [userName]="userName"></user-button>
-        <div *ngFor="let game of games">
-            <quizz-button [imgUri]=game.quizzImg [quizzGameName]=game.quizzName  
-            (click)="onClick(game.quizzNameValue); drawer.toggle()"></quizz-button>
-        </div>
-    </mat-drawer>
-    <mat-drawer-content class="drawer-content mat-drawwer-content">
-        <button type="button" mat-raised-button id="btnGames" (click)="drawer.toggle()" matTooltip="Games menu">
-            <img [src]="imgSrc" width="60dp"
-            (mouseover)="imgSrc = this.imgMenuIconHover" 
-            (mouseout)="imgSrc = this.imgMenuIcon"/>
-        </button>
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
-</mat-drawer-container>
+<app-hub-nav-page></app-hub-nav-page>
