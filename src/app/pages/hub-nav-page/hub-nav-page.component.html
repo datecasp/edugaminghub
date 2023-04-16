@@ -36,6 +36,25 @@
       </button>
       <span class="title">Edugaming Hub</span>
       <button
+        mat-raised-button
+        *ngIf="isUserLogged"
+        id="btnLogout"
+        (click)="logout()"
+      >
+        Logout
+      </button>
+
+      <button
+        *ngIf="isUserLogged"
+        type="button"
+        mat-button
+        id="btnAccount"
+        (click)="goHome()"
+        matTooltip="Your account"
+      >
+        <img [src]="imgAccountBtn" width="48dp" />
+      </button>
+      <button
         type="button"
         mat-button
         id="btnHome"
@@ -44,7 +63,6 @@
       >
         <img [src]="imgHomeBtn" width="60dp" />
       </button>
-      <button mat-raised-button *ngIf="isUserLogged" id="btnLogout" (click)="logout()">Logout</button>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

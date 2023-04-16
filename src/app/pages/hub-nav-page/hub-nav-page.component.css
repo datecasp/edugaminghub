@@ -32,10 +32,16 @@
   width: 64px;
   height: 64px;
   background-color: transparent;
-  left: 70%;
+  left: 63%;
 }
 
 #btnLogout {
+  width: 64px;
+  height: 64px;
+  left: 57%;
+}
+
+#btnAccount {
   width: 64px;
   height: 64px;
   left: 60%;

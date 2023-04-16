@@ -28,6 +28,7 @@ export class HubNavPageComponent implements OnInit {
   imgMenuIconHover: string = './assets/rubik-hover.png';
   imgSrc: string = this.imgMenuIcon;
   imgHomeBtn: string = './assets/home2.png';
+  imgAccountBtn: string = './assets/trophy.png';
   isUserLogged: boolean = false;
   isUserLogged$!: Observable<boolean>;
   userName = '';
