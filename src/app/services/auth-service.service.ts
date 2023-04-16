@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
 import { RegisterFormDTO } from '../models/register-form-DTO';
+import { UserDTO } from '../models/user-DTO';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,8 @@ import { RegisterFormDTO } from '../models/register-form-DTO';
 export class AuthService {
   isLoggedIn = false;
   loggedObs = new Subject();
+  userDataObserv = new Subject();
+  completeName = '';
 
   // store the URL so we can redirect after logging in
   redirectUrl: string | null = null;
@@ -34,26 +37,25 @@ export class AuthService {
     return this.http.post('https://localhost:7057/api/Users/Login', body);
   }
 
+  getUserById(id: number): Observable<any> {
+    return this.http.get('https://localhost:7057/api/Users/'+ id);
+  }
+
   logout(): void {
     this.isLoggedIn = false;
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('userName');
+  }
+
+  userData() {
+    return this.userDataObserv.asObservable();
   }
 
   isLogged() {
     return this.loggedObs.asObservable();
   }
 
-  /**
-   * Service to validate and save users into DB
-   *
-   * ATM only email and password are used while testing
-   * agaisnt reqres service. Also no validations are done.
-   * The email to success register is eve.holt@requires.in
-   * Rest of fields are indiferent
-   * Password is also required
-   * @returns
-   */
   register(
     name: string,
     surname: string,

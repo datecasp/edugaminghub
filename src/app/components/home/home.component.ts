@@ -78,8 +78,10 @@ export class HomeComponent implements AfterViewInit {
           if (response.token) {
             sessionStorage.setItem('token', response.token);
             sessionStorage.setItem('userId', response.id);
+            sessionStorage.setItem('userName', response.userName);
             this.isLogged = true;
             this.authService.loggedObs.next(this.isLogged);
+            this.authService.userDataObserv.next(response.userName);
             this.router.navigate(['home']);
           }
         },
@@ -116,6 +118,7 @@ export class HomeComponent implements AfterViewInit {
                     subtitle: 'Now you are a valuable member of our community'
                   },
                 });
+                this.authService.userDataObserv.next(response.userName);
                 this.authService.loggedObs.next(this.isLogged);
                 //this.router.navigate(['home']);
               }

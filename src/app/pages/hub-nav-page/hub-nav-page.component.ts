@@ -7,6 +7,7 @@ import { GAMES } from 'src/app/data/games';
 import { SocialQuizzsLibService } from 'social-quizzs-lib';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-hub-nav-page',
@@ -29,8 +30,9 @@ export class HubNavPageComponent implements OnInit {
   imgHomeBtn: string = './assets/home2.png';
   isUserLogged: boolean = false;
   isUserLogged$!: Observable<boolean>;
-  userName = 'Your profile';
+  userName = '';
   loggingSubscription: Subscription = new Subscription();
+  userDataSubscription: Subscription = new Subscription();
   games: Game[] = GAMES;
 
   constructor(
@@ -40,12 +42,19 @@ export class HubNavPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('token') != null) {
-      this.isUserLogged = true;
-    } else {
-      this.isUserLogged = false;
-    }
-    this.loggingSubscription = this.authService.isLogged().subscribe(() =>document.location.reload());
+    this.loggingSubscription = this.authService
+      .isLogged()
+      .subscribe(() => document.location.reload());
+    this.userDataSubscription = this.authService
+      .userData()
+      .subscribe(() => document.location.reload());
+
+    sessionStorage.getItem('userName') != null
+      ? (this.userName = sessionStorage['userName'])
+      : (this.userName = 'Login to see your data');
+    sessionStorage.getItem('token') != null
+      ? (this.isUserLogged = true)
+      : (this.isUserLogged = false);
   }
 
   public onClick(gameName: string) {
