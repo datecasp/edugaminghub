@@ -1,8 +1,6 @@
 .container {
-  margin: 10% 15% !important;
   float: none !important;
   justify-content: space-around;
-
 }
 
 .gamesBtnRow{
@@ -11,6 +9,13 @@
   display:flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.logoutBtn{
+  width: inherit;
+  margin-top: 25px;
+  display:flex;
+  justify-content: center;
 }
 
 .title {

@@ -19,7 +19,7 @@ import { FinalDialogService } from './services/final-dialog.service';
 import { VerbsGridComponent } from './components/games/verbs-grid/verbs-grid.component';
 import { VerbsService } from './services/verbs.service';
 import { VerbRowComponent } from './components/verb-row/verb-row.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FillTheGapsComponent } from './components/games/fill-the-gaps/fill-the-gaps.component';
 import { LetterButtonComponent } from './components/letter-button/letter-button.component';
 import { RandomLetterButtonComponent } from './components/random-letter-button/random-letter-button.component';
@@ -32,6 +32,21 @@ import { RegisterDialogComponent } from './components/register-dialog/register-d
 import { AuthService } from './services/auth-service.service';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 import { GenericDialogComponent } from './components/generic-dialog/generic-dialog.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SpainRiversPageComponent } from './pages/games/spain-rivers-page/spain-rivers-page.component';
+import { SpainAaccPageComponent } from './pages/games/spain-aacc-page/spain-aacc-page.component';
+import { FillTheGapsPageComponent } from './pages/games/fill-the-gaps-page/fill-the-gaps-page.component';
+import { VerbsGridTestPageComponent } from './pages/games/verbs-grid-test-page/verbs-grid-test-page.component';
+import { GameInstructionsPageComponent } from './pages/game-instructions-page/game-instructions-page.component';
+import { HubNavPageComponent } from './pages/hub-nav-page/hub-nav-page.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PasswordCheckerDirective } from './shared/password-checker.directive';
 
 @NgModule({
   declarations: [
@@ -53,6 +68,14 @@ import { GenericDialogComponent } from './components/generic-dialog/generic-dial
     RegisterDialogComponent,
     LoginDialogComponent,
     GenericDialogComponent,
+    HomePageComponent,
+    SpainRiversPageComponent,
+    SpainAaccPageComponent,
+    FillTheGapsPageComponent,
+    VerbsGridTestPageComponent,
+    GameInstructionsPageComponent,
+    HubNavPageComponent,
+    PasswordCheckerDirective,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +87,15 @@ import { GenericDialogComponent } from './components/generic-dialog/generic-dial
     NgbModule,
     NgbPopoverModule,
     MaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService, AuthService],
   bootstrap: [AppComponent],
