@@ -111,6 +111,7 @@ export class HomeComponent implements AfterViewInit {
               if (response.token) {
                 sessionStorage.setItem('token', response.token);
                 sessionStorage.setItem('userId', response.id);
+                sessionStorage.setItem('userName', response.userName);
                 this.isLogged = true;
                 const dialogRef2 = this.dialog.open(GenericDialogComponent, {
                   data: {

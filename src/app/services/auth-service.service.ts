@@ -20,15 +20,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * Service to log users into theirs accounts
-   * ATM uses reqres service
-   * For success login email is eve.holt@requires.in
-   * Password is mandatory but irrelevant value
-   * @param email
-   * @param password
-   * @returns
-   */
   login(email: string, password: string): Observable<any> {
     let body = {
       email: email,

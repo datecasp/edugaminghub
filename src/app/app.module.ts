@@ -19,7 +19,7 @@ import { FinalDialogService } from './services/final-dialog.service';
 import { VerbsGridComponent } from './components/games/verbs-grid/verbs-grid.component';
 import { VerbsService } from './services/verbs.service';
 import { VerbRowComponent } from './components/verb-row/verb-row.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FillTheGapsComponent } from './components/games/fill-the-gaps/fill-the-gaps.component';
 import { LetterButtonComponent } from './components/letter-button/letter-button.component';
 import { RandomLetterButtonComponent } from './components/random-letter-button/random-letter-button.component';
@@ -45,6 +45,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PasswordCheckerDirective } from './shared/password-checker.directive';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,7 @@ import { MatListModule } from '@angular/material/list';
     VerbsGridTestPageComponent,
     GameInstructionsPageComponent,
     HubNavPageComponent,
+    PasswordCheckerDirective,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,9 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService, AuthService],
   bootstrap: [AppComponent],
