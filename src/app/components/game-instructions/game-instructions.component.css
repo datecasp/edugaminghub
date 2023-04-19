@@ -1,6 +1,4 @@
 .container {
-  margin: auto 20% !important;
-  float: none !important;
   display: block;
   align-items: center;
   width: 600px;
@@ -27,4 +25,10 @@
   font-size: 25px;
   font-family: "Ink Free";
   font-weight: bold;
+}
+
+.actionBtn{
+  margin-top: 25px;
+  display:flex;
+  justify-content: center;
 }

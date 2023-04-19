@@ -11,6 +11,8 @@ import { LoginFormDTO } from 'src/app/models/login-form-DTO';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { LoginDialogService } from 'src/app/services/login-dialog.service';
+import { GenericDialog } from 'src/app/models/GenericDialog';
+import { GenericDialogComponent } from '../generic-dialog/generic-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -76,7 +78,10 @@ export class HomeComponent implements AfterViewInit {
           if (response.token) {
             sessionStorage.setItem('token', response.token);
             sessionStorage.setItem('userId', response.id);
+            sessionStorage.setItem('userName', response.userName);
             this.isLogged = true;
+            this.authService.loggedObs.next(this.isLogged);
+            this.authService.userDataObserv.next(response.userName);
             this.router.navigate(['home']);
           }
         },
@@ -106,8 +111,17 @@ export class HomeComponent implements AfterViewInit {
               if (response.token) {
                 sessionStorage.setItem('token', response.token);
                 sessionStorage.setItem('userId', response.id);
+                sessionStorage.setItem('userName', response.userName);
                 this.isLogged = true;
-                this.router.navigate(['home']);
+                const dialogRef2 = this.dialog.open(GenericDialogComponent, {
+                  data: {
+                    title: 'Welcome to Edugaming',
+                    subtitle: 'Now you are a valuable member of our community'
+                  },
+                });
+                this.authService.userDataObserv.next(response.userName);
+                this.authService.loggedObs.next(this.isLogged);
+                //this.router.navigate(['home']);
               }
             }
           );
@@ -121,6 +135,7 @@ export class HomeComponent implements AfterViewInit {
   public logout() {
     this.authService.logout();
     this.isLogged = false;
+    this.authService.loggedObs.next(this.isLogged);
     this.router.navigate(['home']);
   }
 }

@@ -1,0 +1,11 @@
+.generic-dialog{
+    float: none !important;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.cross-validation-error-message{
+    float: none !important;
+    align-content: center;
+    color: warn;
+}

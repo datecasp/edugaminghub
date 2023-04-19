@@ -1,37 +1,141 @@
-<h1 mat-dialog-title>Register</h1>
-<div mat-dialog-content *ngIf="notRegistered; else Registered">
-  <p>Fill the fields</p>
-  <mat-form-field appearance="fill">
-    <input matInput type="input" [(ngModel)]="data.name" placeholder="Name" />
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <input
-      matInput
-      type="input"
-      [(ngModel)]="data.surname"
-      placeholder="Surname"
-    />
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <input matInput type="email" [(ngModel)]="data.email" placeholder="Email" />
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <input
-      matInput
-      type="password"
-      [(ngModel)]="data.password"
-      placeholder="Password"
-    />
-  </mat-form-field>
-</div>
-<ng-template #Registered>
-<div mat-dialog-content>
-  <h3>Congratulations!!!</h3>
-  <h4>Now you are a valuable member of</h4>
-  <h1>Edugaming</h1>
-</div>
-</ng-template>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+<div class="generic-dialog">
+  <h1 mat-dialog-title>Register</h1>
+  <div mat-dialog-content *ngIf="notRegistered; else Registered">
+    <p>Fill the fields</p>
+    <form [formGroup]="registerForm" (submit)="submitRegister()">
+      <p>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="input"
+            formControlName="name"
+            placeholder="Name"
+          />
+          <mat-error
+            *ngIf="
+              name?.errors?.['required'] &&
+              name?.touched
+            "
+          >
+            Name field is mandatory
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="input"
+            formControlName="surname"
+            placeholder="Surname"
+          />
+          <mat-error
+            *ngIf="
+              surname?.errors?.['required'] &&
+              surname?.touched
+            "
+          >
+            Surname field is mandatory
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <mat-error
+            *ngIf="
+              email?.errors?.['required'] &&
+              email?.touched && !email?.errors?.['email']
+            "
+          >
+            Email field is mandatory
+          </mat-error>
+          <mat-error
+            *ngIf="
+              email?.errors?.['email'] &&
+              email?.touched
+            "
+          >
+            Email format is mandatory
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <form [formGroup]="passwordForm" (submit)="submitRegister()">
+        <p>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <mat-error
+              *ngIf="password?.errors?.['required'] && password?.touched"
+            >
+              Password field is mandatory
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              type="password"
+              placeholder="Repeat password"
+              formControlName="repeatPassword"
+            />
+            <mat-error
+              *ngIf="
+              repeatPassword?.errors?.['required'] &&
+              repeatPassword?.touched; else NotRequiredError
+            "
+            >
+              Password field is mandatory
+            </mat-error>
+            <ng-template #NotRequiredError>
+              <mat-error
+                *ngIf="
+            data.password != repeatPassword?.errors?.['mismatch']
+            "
+              >
+                Passwords must be equals!!
+              </mat-error>
+            </ng-template>
+          </mat-form-field>
+        </p>
+      <div
+        *ngIf=" passwordForm.errors?.['mismatch'] 
+        && password?.touched 
+        && repeatPassword?.touched
+        && password?.value != ''
+        && repeatPassword?.value != ''"
+        class="cross-validation-error-message"
+      >
+        Passwords must be equals
+      </div>
+    </form>
+    </form>
+  </div>
+  <ng-template #Registered>
+    <div mat-dialog-content>
+      <h3>Congratulations!!!</h3>
+      <h4>Now you are a valuable member of</h4>
+      <h1>Edugaming</h1>
+    </div>
+  </ng-template>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()" color="warn">
+      No Thanks
+    </button>
+    <button
+      mat-raised-button
+      (click)="sendData(registerForm, passwordForm)"
+      color="primary"
+      [disabled]="registerForm.invalid || passwordForm.invalid"
+    >
+      Ok
+    </button>
+  </div>
 </div>
