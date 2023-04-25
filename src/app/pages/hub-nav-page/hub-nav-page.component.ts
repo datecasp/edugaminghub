@@ -5,7 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Game } from 'src/app/models/Game';
 import { GAMES } from 'src/app/data/games';
 import { SocialQuizzsLibService } from 'social-quizzs-lib';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { AsyncPipe } from '@angular/common';
 
@@ -27,11 +27,13 @@ export class HubNavPageComponent implements OnInit {
   imgMenuIcon: string = './assets/rubik.png';
   imgMenuIconHover: string = './assets/rubik-hover.png';
   imgSrc: string = this.imgMenuIcon;
-  imgHomeBtn: string = './assets/home2.png';
-  imgAccountBtn: string = './assets/trophy.png';
+  imgHomeBtn: string = './assets/homeIcon.png';
+  imgAccountBtn: string = './assets/user.png';
+  imgLogoutBtn: string = './assets/logout.png';
   isUserLogged: boolean = false;
   isUserLogged$!: Observable<boolean>;
   userName = '';
+  userId: number = 0;
   loggingSubscription: Subscription = new Subscription();
   userDataSubscription: Subscription = new Subscription();
   games: Game[] = GAMES;
@@ -53,6 +55,9 @@ export class HubNavPageComponent implements OnInit {
     sessionStorage.getItem('userName') != null
       ? (this.userName = sessionStorage['userName'])
       : (this.userName = 'Login to see your data');
+    sessionStorage.getItem('userId') != null
+      ? (this.userId = sessionStorage['userId'])
+      : (this.userId = 0);
     sessionStorage.getItem('token') != null
       ? (this.isUserLogged = true)
       : (this.isUserLogged = false);
@@ -64,6 +69,13 @@ export class HubNavPageComponent implements OnInit {
 
   public goHome() {
     this.router.navigate(['/home/']);
+  }
+
+  public goUserData(userName: string, userId: number) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: { userName: userName, userId: userId },
+    };
+    this.router.navigate(['/userdata/'], navigationExtras);
   }
 
   public onClick_GamesSideNav() {

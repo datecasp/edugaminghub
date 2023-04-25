@@ -47,6 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PasswordCheckerDirective } from './shared/password-checker.directive';
+import { UserDataComponent } from './components/user-data/user-data.component';
+import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { PasswordCheckerDirective } from './shared/password-checker.directive';
     GameInstructionsPageComponent,
     HubNavPageComponent,
     PasswordCheckerDirective,
+    UserDataComponent,
+    UserDataPageComponent,
   ],
   imports: [
     BrowserModule,
