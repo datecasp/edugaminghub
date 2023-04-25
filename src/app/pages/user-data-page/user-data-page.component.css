@@ -1,0 +1,20 @@
+.container {
+    float: none !important;
+    align-content: center;
+  }
+
+  .title {
+    margin: 30px auto !important;
+    text-align: center;
+    font-family: "Ink Free";
+    font-size: 60px;
+  }
+
+  .simpleText {
+    margin: 30px auto !important;
+    text-align: center;
+    text-justify: auto;
+    font-size: 25px;
+    font-family: "Ink Free";
+  }
+  

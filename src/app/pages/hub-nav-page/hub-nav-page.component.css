@@ -28,21 +28,20 @@
   height: 64px;
 }
 
+#btnAccount {
+  width: 64px;
+  height: 64px;
+  left: 63%;
+}
+
 #btnHome {
   width: 64px;
   height: 64px;
-  background-color: transparent;
-  left: 63%;
+  left: 64%;
 }
 
 #btnLogout {
   width: 64px;
   height: 64px;
-  left: 57%;
-}
-
-#btnAccount {
-  width: 64px;
-  height: 64px;
-  left: 60%;
+  left: 65%;
 }
