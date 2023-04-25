@@ -9,9 +9,15 @@ import { GameInstructionsPageComponent } from './pages/game-instructions-page/ga
 import { SpainAaccPageComponent } from './pages/games/spain-aacc-page/spain-aacc-page.component';
 import { VerbsGridTestPageComponent } from './pages/games/verbs-grid-test-page/verbs-grid-test-page.component';
 import { HubNavPageComponent } from './pages/hub-nav-page/hub-nav-page.component';
+import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
+  {
+    path: 'userdata',
+    component: UserDataPageComponent,
+    canActivate: [authGuard],
+  },
   {
     path: 'spain-rivers-quizz',
     component: SpainRiversPageComponent,

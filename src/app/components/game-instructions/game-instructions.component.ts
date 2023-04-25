@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { LoginFormDTO } from 'src/app/models/login-form-DTO';
 import { MatDialog } from '@angular/material/dialog';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-game-instructions',
@@ -19,6 +20,7 @@ export class GameInstructionsComponent implements AfterViewInit {
   instructionsSet1: string = 'Here goes first set of instructions of the game';
   instructionsSet2: string = 'Here goes second set of instructions of the game';
   game: Game | any;
+  userId: number | any;
   gamesData = GAMES;
   gamesInstructions = INSTRUCTIONS_SETS;
   gameName: string = '';
@@ -34,6 +36,7 @@ export class GameInstructionsComponent implements AfterViewInit {
     public dialog: MatDialog,
     private route: ActivatedRoute,
     private authService: AuthService,
+    private userDataService: UserDataService
   ) {}
 
   ngAfterViewInit() {
@@ -43,6 +46,7 @@ export class GameInstructionsComponent implements AfterViewInit {
     });
     if (sessionStorage.getItem('token') != null) {
       this.isLogged = true;
+      this.userId = sessionStorage.getItem('userId');
     } else {
       this.isLogged = false;
     }
@@ -61,6 +65,7 @@ export class GameInstructionsComponent implements AfterViewInit {
           if (response.token) {
             sessionStorage.setItem('token', response.token);
             sessionStorage.setItem('userId', response.userId);
+            this.userId = Number(response.userId);
             sessionStorage.setItem('userName', response.userName);
             this.isLogged = true;
             this.authService.loggedObs.next(this.isLogged);
@@ -85,7 +90,14 @@ export class GameInstructionsComponent implements AfterViewInit {
     }
   }
 
-  onClick() {
-    this.router.navigate([this.game.quizzNameValue]);
+  onClick(userId: number) {
+    this.userDataService
+      .addOrUpdateUserGame(userId, this.game.id+1)
+      .subscribe(
+        (ug) => {
+          this.router.navigate([this.game.quizzNameValue]);
+        },
+        (error) => {throw new error}
+      );
   }
 }
