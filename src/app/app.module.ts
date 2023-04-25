@@ -11,7 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SpainRiversQuizzComponent } from './components/games/spain-rivers-quizz/spain-rivers-quizz.component';
 import { SpainAaccQuizzComponent } from './components/games/spain-aacc-quizz/spain-aacc-quizz.component';
 import { TableCustomComponent } from './components/table-custom/table-custom.component';
-import { TableCustomService } from './services/table-custom.service';
 import { OlMapComponent } from './components/ol-map/ol-map.component';
 import { OlMapService } from './services/ol-map.service';
 import { FinalDialogComponent } from './components/final-dialog/final-dialog.component';
@@ -97,7 +96,7 @@ import { PasswordCheckerDirective } from './shared/password-checker.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [OlMapService, FinalDialogService, VerbsService, TableCustomService, GamesService, AuthService],
+  providers: [OlMapService, FinalDialogService, VerbsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

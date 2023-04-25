@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FINALDIALOG_TEXTS } from 'src/app/data/final-dialog-texts';
 import { IElement } from 'src/app/interfaces/IElement';
-import { TableCustomService } from 'src/app/services/table-custom.service';
 import { FinalDialogService } from '../../services/final-dialog.service';
 import { OlMapService } from '../../services/ol-map.service';
 
@@ -23,20 +22,26 @@ export class TableCustomComponent {
   notSelectedColor = 'aquamarine';
   correctColor = 'green';
   wrongColor = 'red';
+  finalDialogTexts = FINALDIALOG_TEXTS;
   fdShowedText: string | any;
 
   constructor(
     private _olMapService: OlMapService,
-    private _finalDialogService: FinalDialogService,
-    private _tableCustomService: TableCustomService
+    private _finalDialogService: FinalDialogService
   ) {}
 
   ngAfterViewInit() {
     this.dataSource = this.data;
-    this.fdShowedText = this._tableCustomService.loadDialogText(this.dataType);
+    switch (this.dataType) {
+      case 'communities':
+        this.fdShowedText = this.finalDialogTexts.get('communities');
+        break;
+      case 'rivers':
+        this.fdShowedText = this.finalDialogTexts.get('rivers');
+        break;
+      default:
+    }
   }
-
-  
 
   async onClick(element: IElement) {
     //  To equals id and dataSource index if dataSource[0].id != 0
