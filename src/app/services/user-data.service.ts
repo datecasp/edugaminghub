@@ -14,4 +14,14 @@ export class UserDataService {
   public getUserGamesListService(userId: number): Observable<UserGame[]> {
     return this.http.get<UserGame[]>(this.baseUrl + 'usergames/'+ userId);
   }
+
+  public addOrUpdateUserGame(userId: number, gameId: number): Observable<UserGame> {
+    let body = {
+      id: 0,
+      user: userId,
+      game: gameId,
+      plays: 0
+    }
+    return this.http.post<UserGame>(this.baseUrl + 'usergames', body);
+  }
 }
