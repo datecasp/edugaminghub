@@ -42,7 +42,7 @@ export class UserDataComponent implements AfterViewInit {
       var gameInfo: GameInfo = {
         id: game.id,
         gameName: game.quizzName,
-        gameImgUri: game.quizzImg,
+        gameImgUri: game.quizzImgUri,
         gamePlays:
           userGamesList.find(
             (ug) => ug.game == game.id && ug.user == this.userId

@@ -21,7 +21,7 @@ import { GenericDialogComponent } from '../generic-dialog/generic-dialog.compone
 })
 export class HomeComponent implements AfterViewInit {
   gamesList: Game[] = [
-    { id: 0, quizzName: '', quizzImg: '', quizzNameValue: '' },
+    { id: 0, quizzName: '', quizzImgUri: '', quizzNameValue: '' },
   ];
   homeTexts = HOME_TEXTS;
   title = this.homeTexts.at(0)?.title;

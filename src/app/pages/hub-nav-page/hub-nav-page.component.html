@@ -11,7 +11,7 @@
       <user-button mat-raised-button [userName]="userName"></user-button>
       <div *ngFor="let game of games">
         <quizz-button
-          [imgUri]="game.quizzImg"
+          [imgUri]="game.quizzImgUri"
           [quizzGameName]="game.quizzName"
           (click)="onClick(game.quizzNameValue); drawer.toggle()"
         ></quizz-button>
